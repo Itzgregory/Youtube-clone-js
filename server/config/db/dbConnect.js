@@ -1,5 +1,5 @@
-const mongoose = require('moongoose');
-const dotenv = require("dotenv");
+const mongoose = require('mongoose');
+const dotenv = require('dotenv');
 
 dotenv.config();
 
@@ -48,7 +48,7 @@ class MongoDBConnectionManager {
   }
 
   startHealthCheck() {
-    const healthCheckInterval = 5 * 60 * 1000; // 5 minutes
+    const healthCheckInterval = 5 * 60 * 1000;
 
     this.healthCheckInterval = setInterval(async () => {
       await this.checkConnection(this.readConnection, 'Read');

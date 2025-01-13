@@ -3,9 +3,8 @@ dotenv.config();
 const bodyParser = require("body-parser");
 const express = require('express');
 const mongoose = require('mongoose');
-const {logger} = require("../server/src/utils");
+const logger = require("../server/src/utils/logger/logger.js");
 const dbManager = require('../server/config/db/dbConnect.js');
-const { notFound, errorHandler } = require('./middlewares/errorHandler.js'); 
 const app = express();
 const cookieParser = require("cookie-parser");
 const PORT = process.env.PORT || 3000;
@@ -20,8 +19,6 @@ app.get('/', (req, res) => {
     res.send('Welcome to the API!');
 });
 
-app.use(notFound); 
-app.use(errorHandler);
 
 const startServer = async () => {
     try {
