@@ -3,7 +3,7 @@ dotenv.config();
 const bodyParser = require("body-parser");
 const express = require('express');
 const mongoose = require('mongoose');
-const logger = require("../server/src/utils/logger/logger.js");
+const logger = require("../server/src/utils/logger/logger");
 const dbManager = require('../server/config/db/dbConnect.js');
 const app = express();
 const cookieParser = require("cookie-parser");

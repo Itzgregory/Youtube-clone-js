@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const logger = require("../../src/utils/logger/logger");
 
 dotenv.config();
 
@@ -23,7 +24,7 @@ class MongoDBConnectionManager {
         }
 
         try{
-            this.readConnection = await moongoose.createConnection(process.env.MONGO_URL_READ_ATLAS, mongoOptions);
+            this.readConnection = await mongoose.createConnection(process.env.MONGO_URL_READ_ATLAS, mongoOptions);
             this.writeConnection = await mongoose.createConnection(process.env.MONGO_URL_WRITE_ATLAS, mongoOptions);
       logger.info('MongoDB Atlas connections established');
       this.startHealthCheck();
